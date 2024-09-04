@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 
-const port = process.env.PORT || 3000;
+//const port = process.env.PORT || 3000;
 
 mongoose
   .connect(process.env.CONNECTIONSTRING, {
@@ -60,15 +60,9 @@ app.use(checkCsrfError);
 app.use(csrfMiddleware);
 app.use(routes);
 
-/*
 app.on("pronto", () => {
   app.listen(3000, () => {
     console.log("Acessar http://localhost:3000");
     console.log("Servidor executando na porta 3000");
   });
-});
-*/
-
-app.listen(port, () => {
-  console.info("Aplicação rodando em: http://localhost:3000");
 });
